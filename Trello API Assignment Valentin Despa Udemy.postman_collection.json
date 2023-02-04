@@ -371,7 +371,7 @@
 							"pm.collectionVariables.unset(\"doneListId\");\r",
 							"pm.collectionVariables.unset(\"cardId\");\r",
 							"pm.collectionVariables.unset(\"cardName\");\r",
-							"pm.collectionVariables.unset(\"deleteBoardRequestId\");"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -427,19 +427,16 @@
 							"const firstBoard = jsonData.shift();\r",
 							"\r",
 							"if (firstBoard) {\r",
-							"    // Print the value\r",
-							"    console.log(firstBoard.id);\r",
-							"    \r",
 							"    // Set the variable boardId with the first board id from the list retrieved\r",
 							"    pm.collectionVariables.set(\"boardId\", firstBoard.id);\r",
 							"    \r",
 							"    // Set the next request to the delete board\r",
 							"    postman.setNextRequest(pm.collectionVariables.get(\"deleteBoardRequestId\"));\r",
-							"}else if(firstBoard === undefined){\r",
+							"}else{\r",
 							"        postman.setNextRequest(null);\r",
 							"}\r",
 							"\r",
-							""
+							"pm.collectionVariables.unset(\"deleteBoardRequestId\");"
 						],
 						"type": "text/javascript"
 					}
@@ -518,10 +515,6 @@
 		{
 			"key": "username",
 			"value": "Your Username"
-		},
-		{
-			"key": "deleteBoardRequestId",
-			"value": ""
 		}
 	]
 }
